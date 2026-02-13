@@ -43,14 +43,31 @@
   --color-terracotta: #E2725B;
   --color-turquoise: #40E0D0;
   --color-sun-yellow: #FFD700;
-  --color-agave-green: #2E5B44;
+  --color-agave-green: #006341; /* Official Mexico Green */
+  --color-mex-red: #C8102E;     /* Official Mexico Red */
   --color-mex-black: #1A1A1A;
   --color-mex-white: #FDFBF7;
 }
 
 @layer base {
+  :root {
+    --bg-primary: #1A1A1A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --glass-bg: rgba(26, 26, 26, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  .light {
+    --bg-primary: #FDFBF7;
+    --text-primary: #1A1A1A;
+    --text-secondary: #475569;
+    --glass-bg: rgba(253, 251, 247, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+  }
+
   body {
-    @apply bg-mex-black text-white selection:bg-terracotta selection:text-white font-sans;
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-terracotta selection:text-white font-sans transition-colors duration-300;
     background-image: 
       radial-gradient(circle at 20% 20%, rgba(226, 114, 91, 0.05) 0%, transparent 40%),
       radial-gradient(circle at 80% 80%, rgba(64, 224, 208, 0.05) 0%, transparent 40%),
@@ -60,7 +77,7 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-mex-black/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+    @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] shadow-2xl;
   }
   
   .mexican-card {

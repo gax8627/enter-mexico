@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -29,14 +30,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <LanguageProvider>
-          <Navbar />
-          <div className="min-h-screen pt-20">
-            {children}
-          </div>
-          <Footer />
-        </LanguageProvider>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white dark:bg-mex-black transition-colors duration-300`}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navbar />
+            <div className="min-h-screen pt-20">
+              {children}
+            </div>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
