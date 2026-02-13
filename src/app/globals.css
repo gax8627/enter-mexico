@@ -37,25 +37,77 @@
   }
 }
 
-:root {
-  --background: #0f172a;
-  --foreground: #f8fafc;
+@import "tailwindcss";
+
+@theme {
+  --color-terracotta: #E2725B;
+  --color-turquoise: #40E0D0;
+  --color-sun-yellow: #FFD700;
+  --color-agave-green: #2E5B44;
+  --color-mex-black: #1A1A1A;
+  --color-mex-white: #FDFBF7;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
-  overflow-x: hidden;
+@layer base {
+  body {
+    @apply bg-mex-black text-white selection:bg-terracotta selection:text-white font-sans;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(226, 114, 91, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(64, 224, 208, 0.05) 0%, transparent 40%),
+      url("https://www.transparenttextures.com/patterns/stucco.png");
+  }
 }
 
-/* Glassmorphism Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+@layer components {
+  .glass-panel {
+    @apply bg-mex-black/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .mexican-card {
+    @apply relative overflow-hidden rounded-3xl transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(226,114,91,0.2)];
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .text-gradient-mexican {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta via-sun-yellow to-turquoise;
+  }
+
+  .btn-mexican {
+    @apply px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-mexican-primary {
+    @apply bg-terracotta text-white shadow-[0_10px_20px_rgba(226,114,91,0.3)] hover:shadow-[0_15px_30px_rgba(226,114,91,0.5)] hover:bg-[#ff866d];
+  }
+
+  .btn-mexican-outline {
+    @apply border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-mex-black;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-mex-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-terracotta/30 rounded-full hover:bg-terracotta/50;
+}
+
+.talavera-border {
+  position: relative;
+}
+.talavera-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-image: repeating-linear-gradient(45deg, #E2725B 0, #E2725B 10px, #40E0D0 10px, #40E0D0 20px, #FFD700 20px, #FFD700 30px);
 }
 
 .glass-card {

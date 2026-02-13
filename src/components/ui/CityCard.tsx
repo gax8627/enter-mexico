@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, DollarSign, Shield, Thermometer, Wifi } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CityCardProps {
   name: string;
@@ -11,63 +12,65 @@ interface CityCardProps {
   image: string;
   vibe: string[];
   stats: {
-    cost: number; // 1-5
-    safety: number; // 1-5
-    temp: string; // e.g. "Hot"
+    cost: number;
+    safety: number;
+    temp: string;
     internet: string;
   };
 }
 
 export function CityCard({ name, slug, image, vibe, stats }: CityCardProps) {
+  const { dict } = useLanguage();
+
   return (
     <motion.div
-      whileHover={{ y: -10 }}
-      className="group relative w-full h-[400px] rounded-3xl overflow-hidden glass-card"
+      whileHover={{ y: -12 }}
+      className="mexican-card group h-[450px]"
     >
       {/* Background Image */}
       <Image
         src={image}
         alt={name}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-110"
+        className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0 shadow-inner"
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ocean-900 via-ocean-900/40 to-transparent" />
+      {/* Gradient Overlay - Modern Mexican Palette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-mex-black via-mex-black/40 to-transparent group-hover:from-mex-black group-hover:via-mex-black/60 transition-all duration-500" />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 space-y-4">
+      <div className="absolute inset-0 p-8 flex flex-col justify-end gap-5">
         
         {/* Vibe Tags */}
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {vibe.map((v) => (
-            <span key={v} className="px-3 py-1 text-xs font-semibold text-ocean-900 bg-sand-400 rounded-full">
+            <span key={v} className="px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-white bg-terracotta shadow-lg rounded-lg">
               {v}
             </span>
           ))}
         </div>
 
         {/* Title */}
-        <h3 className="text-3xl font-serif font-bold text-white group-hover:text-sand-400 transition-colors">
+        <h3 className="text-4xl font-serif font-black text-white group-hover:text-turquoise transition-colors drop-shadow-2xl">
           {name}
         </h3>
 
         {/* Stats Grid */}
-        <div className="flex items-center gap-6 text-slate-300 text-sm">
-          <div className="flex items-center gap-1">
-            <DollarSign className="w-4 h-4 text-sand-400" />
+        <div className="grid grid-cols-2 gap-4 text-slate-200 text-xs font-bold border-t border-white/10 pt-4">
+          <div className="flex items-center gap-2">
+            <DollarSign className="w-4 h-4 text-sun-yellow" />
             <span>{"$".repeat(stats.cost)}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Shield className="w-4 h-4 text-emerald-400" />
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-turquoise" />
             <span>{stats.safety}/5</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Thermometer className="w-4 h-4 text-orange-400" />
+          <div className="flex items-center gap-2">
+            <Thermometer className="w-4 h-4 text-terracotta" />
             <span>{stats.temp}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Wifi className="w-4 h-4 text-blue-400" />
+          <div className="flex items-center gap-2">
+            <Wifi className="w-4 h-4 text-sun-yellow" />
             <span>{stats.internet}</span>
           </div>
         </div>
@@ -75,10 +78,10 @@ export function CityCard({ name, slug, image, vibe, stats }: CityCardProps) {
         {/* CTA */}
         <Link 
           href={`/city/${slug}`}
-          className="flex items-center justify-between w-full p-3 mt-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors border border-white/10"
+          className="flex items-center justify-between w-full p-4 mt-2 rounded-2xl bg-white/10 hover:bg-white text-white hover:text-mex-black backdrop-blur-xl transition-all duration-300 border border-white/20 group-hover:shadow-[0_10px_30px_rgba(64,224,208,0.3)]"
         >
-          <span className="font-medium">Explore Hub</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <span className="font-black uppercase tracking-widest text-xs">{dict.city_card.explore}</span>
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </motion.div>

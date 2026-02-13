@@ -1,0 +1,172 @@
+{
+  "navigation": {
+    "quiz": "Start Quiz",
+    "partner": "Partners",
+    "about": "About",
+    "safety": "Safety Reality Check"
+  },
+  "hero": {
+    "badge": "The 2025 Gateway is Open",
+    "title_line_1": "Don't just move.",
+    "title_highlight": "Enter Strategic.",
+    "subtitle": "A premium relocation concierge for high-net-worth individuals and remote professionals moving to Baja California.",
+    "cta_main": "Start City Match Quiz",
+    "cta_secondary": "View Solvency Guide"
+  },
+  "trust": {
+    "badge": "The Safety Pledge",
+    "title": "Relocate with Certainty",
+    "description": "We don't just list cities. We vet them for the things that matter most to Americans.",
+    "points": [
+      {
+        "title": "Strategic Proximity",
+        "desc": "Stay 2 hours from San Diego, reduce your overhead by 60%."
+      },
+      {
+        "title": "Medical Excellence",
+        "desc": "Instant access to world-class specialists at a fraction of US costs."
+      },
+      {
+        "title": "Digital Freedom",
+        "desc": "Mexicali & Rosarito now offer Fiber Internet for remote tech teams."
+      }
+    ]
+  },
+  "solvency": {
+    "badge": "Updated Jan 1, 2025",
+    "title_line_1": "Did you know the",
+    "title_highlight": "income requirement",
+    "title_line_2": "just went up?",
+    "description": "The UMA (Minimum Wage) increase in 2025 changed the math for Temporary and Permanent Residency. Thousands of applicants will be denied this year because they are using 2024 numbers.",
+    "points": [
+      "Exact Monthly Income for Temporary Residency",
+      "Exact Savings Balance for Permanent Residency",
+      "The 'Loophole' for owning a home in Mexico",
+      "Which Consulates are 'Friendly' vs 'Strict'"
+    ],
+    "form_title": "Get the PDF Guide",
+    "form_subtitle": "Sent instantly to your inbox.",
+    "form_button": "Send Me The 2025 Numbers",
+    "form_footer": "Your data is encrypted and used only for residency eligibility audits.",
+    "form_success": "Audit Complete. Check your inbox for the 2025 Residency PDF."
+  },
+  "ai_advisor": {
+    "title": "Strategic AI Advisor",
+    "subtitle": "Blink-speed answers on safety, cost, and legal.",
+    "placeholder": "Ask anything about moving to Mexico...",
+    "suggestion_1": "Is Mexicali safe for expats?",
+    "suggestion_2": "Residency solvency for a couple 2025",
+    "suggestion_3": "Best neighborhood in Merida",
+    "cta": "Get Expert Advice",
+    "persona": "You are the Enter Mexico Strategic AI. You are professional, authoritative, and helpful. You specialize in relocation logic: safety data, residency requirements (2025), and cost arbitrage. You use a 'Modern Mexican' tone—sophisticated, warm, and tech-forward."
+  },
+  "safety_page": {
+    "badge": "Verified Data • Jan 2025",
+    "title_line_1": "The",
+    "title_highlight": "Safety Reality",
+    "title_line_2": "Check",
+    "subtitle": "We don't sell 'Paradise.' We sell 'managed risk.' Here is the honest truth about safety in Baja California, backed by real-time statistics.",
+    "table_title": "Perspective: Global Safety Index 2025",
+    "managed_risk_title": "Understanding 'Managed Risk'",
+    "managed_risk_desc": "Most fear of Mexico comes from high-profile headlines. The local reality for families and remote workers in gated communities and vetted business districts is significantly safer than several major US metros.",
+    "comparison_cities": {
+      "mexicali": "Mexicali, MX (Strategic Hub)",
+      "st_louis": "St. Louis, MO (USA)",
+      "baltimore": "Baltimore, MD (USA)",
+      "oakland": "Oakland, CA (USA)",
+      "merida": "Merida, MX (Yucatan)"
+    },
+    "neighborhoods_title": "Safe Zone Analysis",
+    "neighborhoods": [
+      { "name": "San Pedro / Montecarlo", "city": "Mexicali", "risk": "Minimal", "type": "Luxury Gated" },
+      { "name": "Punta Azul", "city": "Rosarito", "risk": "Minimal", "type": "Beachfront Secured" },
+      { "name": "South Tijuana / La Gloria", "city": "Tijuana", "risk": "Moderate", "type": "Residential" }
+    ]
+  },
+  "city_grid": {
+    "title_line_1": "Choose Your",
+    "title_highlight": "Strategic Base",
+    "subtitle": "Every city in our network is vetted for safety, internet reliability, and US proximity."
+  },
+  "city_card": {
+    "explore": "Explore Hub"
+  },
+  "quiz": {
+    "loading": "Analyzing your responses...",
+    "loading_sub": "Finding your perfect Mexican city.",
+    "step_label": "Question",
+    "of": "of",
+    "next": "Next",
+    "back": "Back",
+    "find_match": "Find Match",
+    "questions": [
+      {
+        "id": "motivation",
+        "question": "What is your primary motivation for moving?",
+        "options": [
+          { "label": "Slash my expenses (Need < $1,500/mo)", "value": "affordability" },
+          { "label": "Upgrade my lifestyle (Beach/Luxury)", "value": "lifestyle" },
+          { "label": "Medical/Dental care access", "value": "medical" }
+        ]
+      },
+      {
+        "id": "budget",
+        "question": "What is your monthly all-in budget?",
+        "options": [
+          { "label": "Under $1,500", "value": "low" },
+          { "label": "$1,500 - $3,000", "value": "mid" },
+          { "label": "$3,000+", "value": "high" }
+        ]
+      },
+      {
+        "id": "vibe",
+        "question": "Pick your ideal daily scenery:",
+        "options": [
+          { "label": "Desert Sun & City Conveniences", "value": "urban" },
+          { "label": "Ocean Breeze & Sunsets", "value": "beach" },
+          { "label": "Historic Streets & Culture", "value": "colonial" }
+        ]
+      },
+      {
+        "id": "housing_mx",
+        "question": "What is your plan for Mexico?",
+        "options": [
+          { "label": "Rent first (Test the waters)", "value": "rent" },
+          { "label": "Buy immediately (Investment)", "value": "buy" }
+        ]
+      },
+      {
+        "id": "housing_us",
+        "question": "What about your current home?",
+        "options": [
+          { "label": "I rent currently", "value": "rent" },
+          { "label": "I own and will keep it", "value": "keep" },
+          { "label": "I own and plan to SELL", "value": "sell" }
+        ]
+      }
+    ]
+  },
+  "partner": {
+    "badge": "Partnership Network 2025",
+    "hero_highlight": "Baja Future",
+    "hero_line_2": "With Us.",
+    "description": "We are recruiting top-tier real estate agencies, medical clinics, and legal firms in Baja California to join our verified referral network.",
+    "form_title": "Partner Application",
+    "form_subtitle": "Join our elite concierge network.",
+    "submit": "Submit Application"
+  },
+  "city_page": {
+    "dashboard_title": "Strategic Dashboard",
+    "connectivity": "Connectivity",
+    "safety_score": "Safety Score",
+    "us_proximity": "US Proximity",
+    "medical": "Medical",
+    "cost_calculator": "Cost Calculator",
+    "monthly_total": "Monthly Total",
+    "cta_match": "Get Local Agent Match"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}

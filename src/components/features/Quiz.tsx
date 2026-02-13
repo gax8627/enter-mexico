@@ -4,60 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check, ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-// Define the Questions based on quiz_logic.md
-const questions = [
-  {
-    id: "motivation",
-    question: "What is your primary motivation for moving?",
-    options: [
-      { id: "savings", label: "Slash my expenses (Need < $1,500/mo)", value: "affordability" },
-      { id: "lifestyle", label: "Upgrade my lifestyle (Beach/Luxury)", value: "lifestyle" },
-      { id: "medical", label: "Medical/Dental care access", value: "medical" },
-    ],
-  },
-  {
-    id: "budget",
-    question: "What is your monthly all-in budget?",
-    options: [
-      { id: "low", label: "Under $1,500", value: "low" },
-      { id: "mid", label: "$1,500 - $3,000", value: "mid" },
-      { id: "high", label: "$3,000+", value: "high" },
-    ],
-  },
-  {
-    id: "vibe",
-    question: "Pick your ideal daily scenery:",
-    options: [
-      { id: "desert", label: "Desert Sun & City Conveniences", value: "urban" },
-      { id: "beach", label: "Ocean Breeze & Sunsets", value: "beach" },
-      { id: "colonial", label: "Historic Streets & Culture", value: "colonial" },
-    ],
-  },
-  {
-    id: "housing_mx",
-    question: "What is your plan for Mexico?",
-    options: [
-      { id: "rent", label: "Rent first (Test the waters)", value: "rent" },
-      { id: "buy", label: "Buy immediately (Investment)", value: "buy" },
-    ],
-  },
-  {
-    id: "housing_us",
-    question: "What about your current home?",
-    options: [
-      { id: "renter", label: "I rent currently", value: "rent" },
-      { id: "owner_keep", label: "I own and will keep it", value: "keep" },
-      { id: "owner_sell", label: "I own and plan to SELL", value: "sell" },
-    ],
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Quiz() {
   const router = useRouter();
+  const { lang, dict } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [isCalculated, setIsCalculated] = useState(false);
+
+  const questions = dict.quiz.questions;
 
   const handleSelect = (value: string) => {
     setAnswers({ ...answers, [questions[currentStep].id]: value });
@@ -79,34 +35,27 @@ export function Quiz() {
 
   const calculateResult = () => {
     setIsCalculated(true);
-    // Simple Logic from quiz_logic.md
-    // Medical OR Low Budget -> Mexicali
-    // Beach -> Rosarito/Ensenada
-    // Colonial OR High Budget -> San Miguel
-
-    let match = "mexicali"; // Default
+    let match = "mexicali";
 
     if (answers.motivation === "medical" || answers.budget === "low") {
       match = "mexicali";
     } else if (answers.vibe === "beach") {
-      // Tie breaker for beach
       match = answers.budget === "mid" ? "rosarito" : "ensenada";
     } else if (answers.vibe === "colonial" || answers.budget === "high") {
       match = "san-miguel";
     }
 
-    // Simulate "Processing" then Redirect
     setTimeout(() => {
       router.push(`/city/${match}`);
-    }, 1500);
+    }, 2000);
   };
 
   if (isCalculated) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 text-center text-white">
-        <div className="w-16 h-16 border-4 border-sand-500 border-t-transparent rounded-full animate-spin mb-6" />
-        <h2 className="text-2xl font-serif">Analyzing your responses...</h2>
-        <p className="text-slate-400">Finding your perfect Mexican city.</p>
+      <div className="flex flex-col items-center justify-center p-12 text-center text-white min-h-[400px]">
+        <div className="w-20 h-20 border-4 border-terracotta border-t-transparent rounded-full animate-spin mb-8 shadow-[0_0_30px_rgba(226,114,91,0.3)]" />
+        <h2 className="text-3xl font-serif font-black mb-2">{dict.quiz.loading}</h2>
+        <p className="text-slate-400 text-lg uppercase tracking-widest">{dict.quiz.loading_sub}</p>
       </div>
     );
   }
@@ -114,11 +63,15 @@ export function Quiz() {
   const question = questions[currentStep];
 
   return (
-    <div className="w-full max-w-2xl mx-auto glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-white/10">
+    <div className="w-full max-w-3xl mx-auto glass-panel p-8 md:p-16 rounded-[40px] relative overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+      
+      {/* Decorative Gradient Background */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-terracotta via-sun-yellow to-turquoise opacity-50" />
+      
+      {/* Progress */}
+      <div className="absolute top-2 left-0 w-full h-1 bg-white/5">
         <motion.div
-          className="h-full bg-sand-500"
+          className="h-full bg-terracotta"
           initial={{ width: 0 }}
           animate={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
         />
@@ -130,55 +83,59 @@ export function Quiz() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3 }}
-          className="space-y-8 mt-6"
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="space-y-12"
         >
-          <div className="space-y-2">
-            <span className="text-sand-400 text-sm font-bold tracking-wider uppercase">
-              Question {currentStep + 1} of {questions.length}
+          <div className="space-y-4">
+            <span className="text-terracotta text-sm font-black tracking-[0.3em] uppercase">
+              {dict.quiz.step_label} {currentStep + 1} {dict.quiz.of} {questions.length}
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+            <h2 className="text-4xl md:text-5xl font-serif font-black text-white leading-tight">
               {question.question}
             </h2>
           </div>
 
-          <div className="grid gap-4">
-            {question.options.map((option) => (
+          <div className="grid gap-5">
+            {question.options.map((option, i) => (
               <button
-                key={option.id}
+                key={i}
                 onClick={() => handleSelect(option.value)}
-                className={`group flex items-center justify-between p-6 rounded-xl text-left transition-all duration-200 border ${
+                className={`group flex items-center justify-between p-7 rounded-2xl text-left transition-all duration-300 border-2 ${
                   answers[question.id] === option.value
-                    ? "bg-sand-500 text-ocean-900 border-sand-500"
-                    : "bg-white/5 text-slate-200 border-white/10 hover:bg-white/10 hover:border-sand-500/50"
+                    ? "bg-terracotta text-white border-terracotta shadow-[0_10px_20px_rgba(226,114,91,0.3)]"
+                    : "bg-white/5 text-slate-200 border-white/10 hover:border-turquoise/50 hover:bg-white/10"
                 }`}
               >
-                <span className="font-medium text-lg">{option.label}</span>
-                {answers[question.id] === option.value && (
-                  <Check className="w-6 h-6" />
-                )}
+                <span className="font-bold text-xl">{option.label}</span>
+                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+                  answers[question.id] === option.value
+                    ? "bg-white border-white text-terracotta"
+                    : "border-white/20 group-hover:border-turquoise"
+                }`}>
+                  {answers[question.id] === option.value && <Check className="w-5 h-5" />}
+                </div>
               </button>
             ))}
           </div>
 
-          <div className="flex items-center justify-between pt-8">
+          <div className="flex items-center justify-between pt-8 border-t border-white/5">
             <button
               onClick={handleBack}
               disabled={currentStep === 0}
-              className={`flex items-center gap-2 text-slate-400 hover:text-white transition-colors ${
-                currentStep === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+              className={`flex items-center gap-2 font-black uppercase tracking-widest text-xs transition-all ${
+                currentStep === 0 ? "opacity-0 pointer-events-none" : "text-slate-400 hover:text-white"
               }`}
             >
-              <ChevronLeft className="w-5 h-5" />
-              Back
+              <ChevronLeft className="w-5 h-5 text-turquoise" />
+              {dict.quiz.back}
             </button>
             
             <button
               onClick={handleNext}
               disabled={!answers[question.id]}
-              className="px-8 py-3 bg-white text-ocean-900 font-bold rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 transition-colors flex items-center gap-2"
+              className="px-10 py-4 bg-white text-mex-black font-black uppercase tracking-widest text-sm rounded-xl disabled:opacity-30 disabled:cursor-not-allowed hover:bg-turquoise transition-all flex items-center gap-3 shadow-xl shadow-turquoise/20"
             >
-              {currentStep === questions.length - 1 ? "Find Match" : "Next"}
+              {currentStep === questions.length - 1 ? dict.quiz.find_match : dict.quiz.next}
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>

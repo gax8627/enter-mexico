@@ -1,0 +1,172 @@
+{
+  "navigation": {
+    "quiz": "Empezar Quiz",
+    "partner": "Socios",
+    "about": "Acerca de",
+    "safety": "Realidad de Seguridad"
+  },
+  "hero": {
+    "badge": "La Puerta 2025 está Abierta",
+    "title_line_1": "No solo te mudes.",
+    "title_highlight": "Entra Estratégico.",
+    "subtitle": "Un conserje de reubicación premium para profesionales remotos y personas de alto patrimonio que se mudan a Baja California.",
+    "cta_main": "Empezar City Match Quiz",
+    "cta_secondary": "Ver Guía de Solvencia"
+  },
+  "trust": {
+    "badge": "El Compromiso de Seguridad",
+    "title": "Reubícate con Certeza",
+    "description": "No solo listamos ciudades. Las evaluamos según lo que más importa a los estadounidenses.",
+    "points": [
+      {
+        "title": "Proximidad Estratégica",
+        "desc": "Quédate a 2 horas de San Diego, reduce tus gastos en un 60%."
+      },
+      {
+        "title": "Excelencia Médica",
+        "desc": "Acceso instantáneo a especialistas de clase mundial a una fracción del costo en EE. UU."
+      },
+      {
+        "title": "Libertad Digital",
+        "desc": "Mexicali y Rosarito ahora ofrecen Internet de Fibra para equipos tecnológicos remotos."
+      }
+    ]
+  },
+  "solvency": {
+    "badge": "Actualizado 1 de ene, 2025",
+    "title_line_1": "¿Sabías que el",
+    "title_highlight": "requisito de ingresos",
+    "title_line_2": "acaba de subir?",
+    "description": "El aumento de la UMA (Salario Mínimo) en 2025 cambió el cálculo para la Residencia Temporal y Permanente. Miles de solicitantes serán rechazados este año por usar los números de 2024.",
+    "points": [
+      "Ingreso Mensual Exacto para Residencia Temporal",
+      "Saldo de Ahorros Exacto para Residencia Permanente",
+      "El 'Atajo' por ser dueño de casa en México",
+      "Qué Consulados son 'Amigables' vs 'Strict'"
+    ],
+    "form_title": "Obtén la Guía PDF",
+    "form_subtitle": "Enviado instantáneamente a tu correo.",
+    "form_button": "Envíame los Números de 2025",
+    "form_footer": "Sus datos están encriptados y se utilizan únicamente para auditorías de elegibilidad de residencia.",
+    "form_success": "Auditoría Completada. Revise su bandeja de entrada para el PDF de Residencia 2025."
+  },
+  "ai_advisor": {
+    "title": "Asesor Estratégico de IA",
+    "subtitle": "Respuestas instantáneas sobre seguridad, costos y leyes.",
+    "placeholder": "Pregunta cualquier cosa sobre mudarte a México...",
+    "suggestion_1": "¿Es seguro Mexicali para expatriados?",
+    "suggestion_2": "Solvencia de residencia para una pareja 2025",
+    "suggestion_3": "Mejor vecindario en Mérida",
+    "cta": "Obtener Asesoría",
+    "persona": "Eres la IA Estratégica de Enter Mexico. Eres profesional, autoritario y servicial. Te especializas en la lógica de reubicación: datos de seguridad, requisitos de residencia (2025) y arbitraje de costos. Usas un tono 'Moderno Mexicano': sofisticado, cálido y tecnológico."
+  },
+  "safety_page": {
+    "badge": "Datos Verificados • Ene 2025",
+    "title_line_1": "La Realidad",
+    "title_highlight": "de Seguridad",
+    "title_line_2": "en México",
+    "subtitle": "No vendemos un 'Paraíso'. Vendemos 'riesgo gestionado'. Aquí está la verdad honesta sobre la seguridad en Baja California, respaldada por estadísticas en tiempo real.",
+    "table_title": "Perspectiva: Índice Global de Seguridad 2025",
+    "managed_risk_title": "Entendiendo el 'Riesgo Gestionado'",
+    "managed_risk_desc": "La mayor parte del miedo hacia México proviene de titulares de alto perfil. La realidad local para familias y trabajadores remotos en comunidades cerradas y distritos comerciales verificados es significativamente más segura que en varias ciudades importantes de EE. UU.",
+    "comparison_cities": {
+      "mexicali": "Mexicali, MX (Centro Estratégico)",
+      "st_louis": "St. Louis, MO (EE. UU.)",
+      "baltimore": "Baltimore, MD (EE. UU.)",
+      "oakland": "Oakland, CA (EE. UU.)",
+      "merida": "Mérida, MX (Yucatán)"
+    },
+    "neighborhoods_title": "Análisis de Zonas Seguras",
+    "neighborhoods": [
+      { "name": "San Pedro / Montecarlo", "city": "Mexicali", "risk": "Mínimo", "type": "Privada de Lujo" },
+      { "name": "Punta Azul", "city": "Rosarito", "risk": "Mínimo", "type": "Costa Asegurada" },
+      { "name": "Sur de Tijuana / La Gloria", "city": "Tijuana", "risk": "Moderado", "type": "Residencial" }
+    ]
+  },
+  "city_grid": {
+    "title_line_1": "Elija su",
+    "title_highlight": "Base Estratégica",
+    "subtitle": "Cada ciudad en nuestra red ha sido evaluada en seguridad, confiabilidad de internet y proximidad a EE. UU."
+  },
+  "city_card": {
+    "explore": "Explorar Hub"
+  },
+  "quiz": {
+    "loading": "Analizando sus respuestas...",
+    "loading_sub": "Encontrando su ciudad perfecta en México.",
+    "step_label": "Pregunta",
+    "of": "de",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "find_match": "Encontrar Ciudad",
+    "questions": [
+      {
+        "id": "motivation",
+        "question": "¿Cuál es su principal motivación para mudarse?",
+        "options": [
+          { "label": "Reducir mis gastos (Necesito < $1,500/mes)", "value": "affordability" },
+          { "label": "Mejorar mi estilo de vida (Playa/Lujo)", "value": "lifestyle" },
+          { "label": "Acceso a atención médica/dental", "value": "medical" }
+        ]
+      },
+      {
+        "id": "budget",
+        "question": "¿Cuál es su presupuesto mensual total?",
+        "options": [
+          { "label": "Menos de $1,500", "value": "low" },
+          { "label": "$1,500 - $3,000", "value": "mid" },
+          { "label": "Más de $3,000", "value": "high" }
+        ]
+      },
+      {
+        "id": "vibe",
+        "question": "Elija su escenario diario ideal:",
+        "options": [
+          { "label": "Sol del Desierto y Comodidades Urbanas", "value": "urban" },
+          { "label": "Brisa Marina y Atardeceres", "value": "beach" },
+          { "label": "Calles Históricas y Cultura", "value": "colonial" }
+        ]
+      },
+      {
+        "id": "housing_mx",
+        "question": "¿Cuál es su plan para México?",
+        "options": [
+          { "label": "Rentar primero (Probar las aguas)", "value": "rent" },
+          { "label": "Comprar inmediatamente (Inversión)", "value": "buy" }
+        ]
+      },
+      {
+        "id": "housing_us",
+        "question": "¿Qué pasará con su hogar actual?",
+        "options": [
+          { "label": "Rento actualmente", "value": "rent" },
+          { "label": "Soy dueño y lo mantendré", "value": "keep" },
+          { "label": "Soy dueño y planeo VENDER", "value": "sell" }
+        ]
+      }
+    ]
+  },
+  "partner": {
+    "badge": "Red de Asociados 2025",
+    "hero_highlight": "el Futuro de Baja",
+    "hero_line_2": "con nosotros.",
+    "description": "Estamos reclutando agencias inmobiliarias, clínicas médicas y bufetes legales de primer nivel en Baja California para unirse a nuestra red de referencia verificada.",
+    "form_title": "Solicitud de Socio",
+    "form_subtitle": "Únase a nuestra red de conserjería de élite.",
+    "submit": "Enviar Solicitud"
+  },
+  "city_page": {
+    "dashboard_title": "Panel Estratégico",
+    "connectivity": "Conectividad",
+    "safety_score": "Puntuación de Seguridad",
+    "us_proximity": "Proximidad a EE. UU.",
+    "medical": "Médico",
+    "cost_calculator": "Calculadora de Costos",
+    "monthly_total": "Total Mensual",
+    "cta_match": "Obtener Agente Local"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad"
+  }
+}

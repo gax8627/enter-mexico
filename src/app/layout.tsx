@@ -1,28 +1,42 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { LiquidBackground } from "@/components/ui/LiquidBackground";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ["latin"], 
+  variable: "--font-playfair",
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Enter Mexico | Strategic Relocation to Baja",
-  description: "The only relocation platform that filters Mexican cities by your Budget, Lifestyle, and Safety Standards.",
+  description: "Bilingual relocation concierge. Manage risk, maximize ROI. Move to Mexico strategically.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased relative`}>
-        <LiquidBackground />
-        <main className="relative z-10">
-          {children}
-        </main>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+        <LanguageProvider>
+          <Navbar />
+          <div className="min-h-screen pt-20">
+            {children}
+          </div>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
