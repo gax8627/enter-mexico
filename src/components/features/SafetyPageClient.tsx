@@ -2,7 +2,12 @@
 
 import { AlertTriangle, CheckCircle, Shield, TrendingDown, MapPin, Search } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const fadeDown: Variants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export default function SafetyPageClient() {
   const { dict } = useLanguage();
@@ -26,8 +31,9 @@ export default function SafetyPageClient() {
         {/* Modern Mexican Hero */}
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={fadeDown}
+            initial="hidden"
+            animate="visible"
             className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-turquoise/10 text-turquoise border border-turquoise/20 text-xs font-black uppercase tracking-widest"
           >
             <Shield className="w-4 h-4" />

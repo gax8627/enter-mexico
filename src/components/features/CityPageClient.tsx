@@ -14,8 +14,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArbitrageComparison } from "./ArbitrageComparison";
+
+const slideUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export default function CityPageClient({ city }: { city: City }) {
   const { dict } = useLanguage();
@@ -41,8 +46,9 @@ export default function CityPageClient({ city }: { city: City }) {
               {dict.quiz?.back || "Back"}
             </Link>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              variants={slideUp}
+              initial="hidden"
+              animate="visible"
             >
               <h1 className="text-7xl md:text-9xl font-serif font-black text-white mb-6 uppercase tracking-tight italic">
                 {city.name}

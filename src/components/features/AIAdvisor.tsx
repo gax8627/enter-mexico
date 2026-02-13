@@ -1,14 +1,21 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Send, Bot, User, Sparkles, MessageSquare, ArrowRight } from "lucide-react";
-
+import { useLanguage } from "@/context/LanguageContext";
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
+
+const messageVariants: Variants = {
+  hidden: (m: Message) => ({ 
+    opacity: 0, 
+    x: m.role === "user" ? 20 : -20 
+  }),
+  show: { opacity: 1, x: 0 }
+};
 
 export function AIAdvisor() {
   const { dict } = useLanguage();
@@ -114,8 +121,10 @@ export function AIAdvisor() {
           {messages.map((m, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: m.role === "user" ? 20 : -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              custom={m}
+              variants={messageVariants}
+              initial="hidden"
+              animate="show"
               className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
             >
               <div className={`max-w-[85%] flex gap-4 ${m.role === "user" ? "flex-row-reverse" : "flex-row"}`}>

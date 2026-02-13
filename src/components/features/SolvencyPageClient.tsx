@@ -2,7 +2,22 @@
 
 import { Check, ShieldAlert, Download, FileText, Lock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const slideIn: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 }
+};
 
 export default function SolvencyPageClient() {
   const { dict } = useLanguage();
@@ -20,8 +35,9 @@ export default function SolvencyPageClient() {
         
         {/* Left Column: Authoritative Copy */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          variants={slideIn}
+          initial="hidden"
+          animate="visible"
           className="space-y-12"
         >
           <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-terracotta/10 text-terracotta border border-terracotta/20 text-xs font-black uppercase tracking-[0.2em] shadow-xl">
@@ -44,8 +60,9 @@ export default function SolvencyPageClient() {
             {solvency.points?.map((item: string, i: number) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
                 transition={{ delay: i * 0.1 }}
                 className="flex items-start gap-4 group"
               >
@@ -71,8 +88,9 @@ export default function SolvencyPageClient() {
 
         {/* Right Column: High-Conversion Opt-in */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          variants={scaleIn}
+          initial="hidden"
+          animate="visible"
           className="relative"
         >
           {/* Decorative Talavera Pattern Background for the form */}
